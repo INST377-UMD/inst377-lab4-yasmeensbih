@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang= "en">
+
+
+<head>
+    <meta charset= "UTF-8">
+    <meta name= "viewport" content= "width = device - width, initial-scale = 1.0">
+    <title> INST377 Lab 4 - </title>
+    <link rel="stylesheet" href= "stylesLab4.css">
+
+</head>
+
+<body>
+
+    <h1 id = "main-heading"> INST377 Lab 4 </h1>
+
+    <div class= "section">
+        <h2> Alert Me Section </h2>
+        <form id= "alert-form"> 
+            <label for = "name" > Enter your name: </label>
+            <input type= "text" id = "name" required>
+            <button type = "button" onclick= "alertName()"> Alert Me</button>
+        </form>
+    </div>
+
+    <div class= "section">
+        <h2> Change Color Section </h2>
+        <button onclick= "changeColor()" > Change Color </button>
+    </div>
+
+    <div class= "section">
+        <h2> Test Tester Section </h2>
+        <form id= "text-form" onsubmit= "event.preventDefault(); validateText();">
+            <label for= "text-input" > Text Tester: </label>
+            <input type = "text" id = "text-input" required>
+            <button type = "submit" > Validate Text </button>
+        </form>
+    </div>
+
+
+    <div class= "section">
+        <h2> Add Text Section </h2>
+        <button onclick= "addText()" > Add Text </button>
+    </div>
+
+    <script>
+        function alertName() {
+            let name = document.getElementById("name").value;
+            if (name) {
+                alert("Hi " + name + "!");
+                document.getElementById("name").value = "";
+            } else {
+                alert("Please enter your name!");
+
+            }
+        }
+
+        function changeColor() {
+            let body = document.body;
+            if (currentColor === "lightblue") {
+                body.style.backgroundColor = "pink" ;
+                currentColor = "pink";
+            } else { 
+                body.style.backgroundColor = "lightblue";
+                currentColor = "lightblue";
+            }
+        
+        }
+
+        function validateText() {
+            let text = document.getElementById("text-input").value;
+            var validation = /[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]+/;
+            if (validation.test(text)) {
+                alert("Special characters are not allowed!");
+            } else {
+                alert("Text is valid!");
+            }
+            document.getElementById("text-input").value = " ";
+        }
+
+        function addText() {
+            let heading = document.getElementById("main-heading");
+            heading.textContent += " Add Text";
+        }
+
+    </script>
+
+</body>
+</html>
