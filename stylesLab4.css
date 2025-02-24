@@ -1,13 +1,16 @@
 body {
 
     font-family: Arial, sans-serif;
-    text-align: center;
-    background-color: lightblue;
+    background-color: pink;
     margin: 0;
     padding: 20px;
 
 }
 
+main-heading {
+
+    text-align: left;
+}
 
 
 .section {
@@ -51,5 +54,6 @@ button {
     font-weight: bold;
 }
 
-button :hover {
+button:hover {
     background-color: orange }
+

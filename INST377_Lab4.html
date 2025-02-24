@@ -24,7 +24,6 @@
     </div>
 
     <div class= "section">
-        <h2> Change Color Section </h2>
         <button onclick= "changeColor()" > Change Color </button>
     </div>
 
@@ -39,30 +38,38 @@
 
 
     <div class= "section">
-        <h2> Add Text Section </h2>
         <button onclick= "addText()" > Add Text </button>
     </div>
 
     <script>
+
+
+        let currentColor = "blue";
+
         function alertName() {
             let name = document.getElementById("name").value;
             if (name) {
-                alert("Hi " + name + "!");
+                showAlert("Hi " + name + "!");
                 document.getElementById("name").value = "";
             } else {
-                alert("Please enter your name!");
+                showAlert("Please enter your name!");
 
             }
         }
 
+        function showAlert(message) {
+            alert(message);
+        }
+
         function changeColor() {
             let body = document.body;
-            if (currentColor === "lightblue") {
-                body.style.backgroundColor = "pink" ;
-                currentColor = "pink";
+
+            if (currentColor === "pink") {
+                body.style.backgroundColor = "green" ;
+                currentColor = "green";
             } else { 
-                body.style.backgroundColor = "lightblue";
-                currentColor = "lightblue";
+                body.style.backgroundColor = "pink";
+                currentColor = "pink";
             }
         
         }
@@ -71,11 +78,11 @@
             let text = document.getElementById("text-input").value;
             var validation = /[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]+/;
             if (validation.test(text)) {
-                alert("Special characters are not allowed!");
+                showAlert("Special characters are not allowed!");
             } else {
-                alert("Text is valid!");
+                showAlert("Text is valid!");
             }
-            document.getElementById("text-input").value = " ";
+            document.getElementById("text-input").value = "";
         }
 
         function addText() {
